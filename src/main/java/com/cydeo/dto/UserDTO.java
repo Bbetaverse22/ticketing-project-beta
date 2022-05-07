@@ -12,35 +12,35 @@ import javax.validation.constraints.*;
 @ToString
 public class UserDTO {
 
-    @NotBlank
-    @Size(max = 15, min = 2)
+//    @NotBlank
+//    @Size(max = 15, min = 2)
     private String firstName;
 
-    @NotBlank
-    @Size(max = 15, min = 2)
+//    @NotBlank
+//    @Size(max = 15, min = 2)
     private String lastName;
 
-    @NotBlank
-    @Email
+//    @NotBlank
+//    @Email
     private String userName;
 
-    @NotBlank
-    @Pattern(regexp = "(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{4,}")
+//    @NotBlank
+//    @Pattern(regexp = "(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{4,}")
     private String passWord;
 
-    @NotNull
+//    @NotNull
     private String confirmPassWord;
 
     private boolean enabled;
 
-    @NotBlank
-    @Pattern(regexp = "^\\d{10}$")
+//    @NotBlank
+//    @Pattern(regexp = "^\\d{10}$")
     private String phone;
 
-    @NotNull
+//    @NotNull
     private RoleDTO role;
 
-    @NotNull
+//    @NotNull
     private Gender gender;
 
     public String getPassWord() {

@@ -15,16 +15,16 @@ public class TaskDTO {
 
     private Long id;
 
-    @NotNull
+//    @NotNull
     private ProjectDTO project;
 
-    @NotNull
+//    @NotNull
     private UserDTO assignedEmployee;
 
-    @NotBlank
+//    @NotBlank
     private String taskSubject;
 
-    @NotBlank
+//    @NotBlank
     private String taskDetail;
 
     private Status taskStatus;
