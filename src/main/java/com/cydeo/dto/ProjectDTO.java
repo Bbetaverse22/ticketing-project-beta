@@ -15,24 +15,26 @@ import java.time.LocalDate;
 @Data
 public class ProjectDTO {
 
-//    @NotBlank
+
+
+    @NotBlank
     private String projectName;
 
-//    @NotBlank
+    @NotBlank
     private String projectCode;
 
-//    @NotNull
+    @NotNull
     private UserDTO assignedManager;
 
-//    @DateTimeFormat(pattern = "yyyy-MM-dd")
-//    @NotNull
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @NotNull
     private LocalDate startDate;
 
-//    @DateTimeFormat(pattern = "yyyy-MM-dd")
-//    @NotNull
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @NotNull
     private LocalDate endDate;
 
-//    @NotBlank
+    @NotBlank
     private String projectDetail;
 
     private Status projectStatus;
