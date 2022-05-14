@@ -1,6 +1,7 @@
 package com.cydeo.controller;
 
 import com.cydeo.dto.TaskDTO;
+import com.cydeo.enums.Status;
 import com.cydeo.service.ProjectService;
 import com.cydeo.service.TaskService;
 import com.cydeo.service.UserService;
@@ -96,44 +97,44 @@ public class TaskController {
         return "redirect:/task/create";
     }
 
-//    @GetMapping("/employee/pending-tasks")
-//    public String employeePendingTasks(Model model) {
-//        model.addAttribute("tasks", taskService.findAllTasksByStatusIsNot(Status.COMPLETE));
-//        return "task/pending-tasks";
-//    }
-//
-//    @GetMapping("/employee/edit/{id}")
-//    public String employeeEditTask(@PathVariable("id") Long id, Model model) {
-//
-//        model.addAttribute("task", taskService.findById(id));
-//        model.addAttribute("tasks", taskService.findAllTasksByStatusIsNot(Status.COMPLETE));
-//        model.addAttribute("statuses", Status.values());
-//
-//        return "task/status-update";
-//
-//    }
-//
-//    @PostMapping("/employee/update/{id}")
-//    public String employeeUpdateTask(@Valid @ModelAttribute("task") TaskDTO task, BindingResult bindingResult, Model model) {
-//
-//        if (bindingResult.hasErrors()) {
-//
-//            model.addAttribute("tasks", taskService.findAllTasksByStatusIsNot(Status.COMPLETE));
-//            model.addAttribute("statuses", Status.values());
-//
-//            return "/task/status-update";
-//
-//        }
-//
-//        taskService.updateStatus(task);
-//        return "redirect:/task/employee/pending-tasks";
-//
-//    }
-//
-//    @GetMapping("/employee/archive")
-//    public String employeeArchivedTasks(Model model) {
-//        model.addAttribute("tasks", taskService.findAllTasksByStatus(Status.COMPLETE));
-//        return "task/archive";
-//    }
+    @GetMapping("/employee/pending-tasks")
+    public String employeePendingTasks(Model model) {
+        model.addAttribute("tasks", taskService.listAllTasksByStatusIsNot(Status.COMPLETE));
+        return "task/pending-tasks";
+    }
+
+    @GetMapping("/employee/edit/{id}")
+    public String employeeEditTask(@PathVariable("id") Long id, Model model) {
+
+        model.addAttribute("task", taskService.findById(id));
+        model.addAttribute("tasks", taskService.listAllTasksByStatusIsNot(Status.COMPLETE));
+        model.addAttribute("statuses", Status.values());
+
+        return "task/status-update";
+
+    }
+
+    @PostMapping("/employee/update/{id}")
+    public String employeeUpdateTask(@Valid @ModelAttribute("task") TaskDTO task, BindingResult bindingResult, Model model) {
+
+        if (bindingResult.hasErrors()) {
+
+            model.addAttribute("tasks", taskService.listAllTasksByStatusIsNot(Status.COMPLETE));
+            model.addAttribute("statuses", Status.values());
+
+            return "/task/status-update";
+
+        }
+
+        taskService.updateStatus(task);
+        return "redirect:/task/employee/pending-tasks";
+
+    }
+
+    @GetMapping("/employee/archive")
+    public String employeeArchivedTasks(Model model) {
+        model.addAttribute("tasks", taskService.listAllTasksByStatus(Status.COMPLETE));
+        return "task/archive";
+    }
 
 }
